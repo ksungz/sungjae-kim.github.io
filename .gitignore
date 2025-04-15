@@ -31,7 +31,6 @@ dist-ssr
 
 # Build files
 /build
-/dist
 
 # Cache
 .cache
