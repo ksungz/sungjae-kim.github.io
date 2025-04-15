@@ -11,9 +11,6 @@ importers:
       '@types/node':
         specifier: ^22.14.1
         version: 22.14.1
-      gh-pages:
-        specifier: ^6.3.0
-        version: 6.3.0
       react:
         specifier: ^19.0.0
         version: 19.1.0
@@ -48,6 +45,9 @@ importers:
       eslint-plugin-react-refresh:
         specifier: ^0.4.19
         version: 0.4.19(eslint@9.24.0)
+      gh-pages:
+        specifier: ^6.3.0
+        version: 6.3.0
       globals:
         specifier: ^15.15.0
         version: 15.15.0
