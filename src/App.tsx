@@ -1,8 +1,9 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Layout from './components/layout/Layout'
-import Home from './pages/Home.tsx'
-import Blog from './pages/Blog.tsx'
-import Post from './pages/Post.tsx'
+import Home from './pages/Home'
+import About from './pages/About'
+import Categories from './pages/Categories'
+import Post from './pages/Post'
 
 function App() {
   return (
@@ -10,8 +11,9 @@ function App() {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
-          <Route path="blog" element={<Blog />} />
-          <Route path="blog/:slug" element={<Post />} />
+          <Route path="about" element={<About />} />
+          <Route path="categories" element={<Categories />} />
+          <Route path="post/:slug" element={<Post />} />
         </Route>
       </Routes>
     </BrowserRouter>

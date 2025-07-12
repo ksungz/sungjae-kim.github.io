@@ -1,0 +1,107 @@
+// ========================================
+// About Page - BEM Style
+// ========================================
+
+@import '../styles/variables';
+@import '../styles/mixins';
+
+.about {
+  min-height: 100vh;
+  background-color: $color-bg-primary;
+
+  &__container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: $space-8 $space-4;
+
+    @include tablet-up {
+      padding: $space-12 $space-6;
+    }
+  }
+
+  &__content {
+    max-width: 600px;
+  }
+
+  &__title {
+    font-size: $font-size-4xl;
+    font-weight: $font-weight-bold;
+    color: $color-text-primary;
+    margin-bottom: $space-8;
+    font-family: $font-family-heading;
+
+    @include tablet-up {
+      font-size: $font-size-5xl;
+    }
+  }
+
+  &__description {
+    margin-bottom: $space-12;
+
+    p {
+      font-size: $font-size-lg;
+      color: $color-text-secondary;
+      line-height: $line-height-relaxed;
+      margin-bottom: $space-6;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  &__skills {
+    margin-bottom: $space-12;
+
+    &__title {
+      font-size: $font-size-2xl;
+      font-weight: $font-weight-bold;
+      color: $color-text-primary;
+      margin-bottom: $space-6;
+      font-family: $font-family-heading;
+    }
+
+    &__list {
+      display: flex;
+      gap: $space-3;
+      flex-wrap: wrap;
+    }
+  }
+
+  &__skill {
+    padding: $space-2 $space-4;
+    background-color: $color-primary-light;
+    color: $color-primary;
+    font-size: $font-size-sm;
+    font-weight: $font-weight-medium;
+    border-radius: $radius-full;
+  }
+
+  &__contact {
+    &__title {
+      font-size: $font-size-2xl;
+      font-weight: $font-weight-bold;
+      color: $color-text-primary;
+      margin-bottom: $space-6;
+      font-family: $font-family-heading;
+    }
+
+    &__links {
+      display: flex;
+      gap: $space-6;
+      flex-wrap: wrap;
+    }
+
+    &__link {
+      font-size: $font-size-lg;
+      color: $color-primary;
+      text-decoration: none;
+      font-weight: $font-weight-medium;
+      transition: color $transition-fast;
+
+      &:hover {
+        color: $color-primary-hover;
+      }
+    }
+  }
+} 

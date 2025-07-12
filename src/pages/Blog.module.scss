@@ -1,0 +1,172 @@
+// ========================================
+// Blog Page - BEM Style
+// ========================================
+
+@import '../styles/variables';
+@import '../styles/mixins';
+
+.blog {
+  // 참고 사이트처럼 단순한 헤더
+  .header {
+    padding: $space-16 0 $space-12;
+    text-align: center;
+    border-bottom: 1px solid $color-border-light;
+
+    &__content {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    &__title {
+      font-size: $font-size-4xl;
+      font-weight: $font-weight-bold;
+      color: $color-text-primary;
+      margin-bottom: $space-4;
+      font-family: $font-family-heading;
+    }
+
+    &__subtitle {
+      font-size: $font-size-lg;
+      color: $color-text-secondary;
+      line-height: $line-height-relaxed;
+    }
+  }
+
+  // 카테고리 필터
+  .filters {
+    padding: $space-8 0;
+    background-color: $color-bg-secondary;
+
+    &__container {
+      display: flex;
+      justify-content: center;
+      gap: $space-2;
+      flex-wrap: wrap;
+    }
+
+    &__button {
+      padding: $space-2 $space-4;
+      border: 1px solid $color-border;
+      background-color: $color-bg-primary;
+      color: $color-text-secondary;
+      font-size: $font-size-sm;
+      font-weight: $font-weight-medium;
+      border-radius: $radius-full;
+      cursor: pointer;
+      transition: all $transition-fast;
+
+      &:hover {
+        background-color: $color-bg-tertiary;
+        color: $color-text-primary;
+        border-color: $color-border-dark;
+      }
+
+      &--active {
+        background-color: $color-primary;
+        color: $color-bg-primary;
+        border-color: $color-primary;
+      }
+    }
+  }
+
+  // 포스트 목록 - 참고 사이트처럼 깔끔하게
+  .posts {
+    padding: $space-16 0 $space-20;
+
+    &__grid {
+      display: grid;
+      gap: $space-12;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+  }
+
+  .post {
+    padding: $space-8 0;
+    border-bottom: 1px solid $color-border-light;
+
+    &:last-child {
+      border-bottom: none;
+    }
+
+    &__meta {
+      display: flex;
+      align-items: center;
+      gap: $space-4;
+      margin-bottom: $space-4;
+    }
+
+    &__date {
+      font-size: $font-size-sm;
+      color: $color-text-muted;
+    }
+
+    &__category {
+      padding: $space-1 $space-2;
+      background-color: $color-primary-light;
+      color: $color-primary;
+      font-size: $font-size-xs;
+      font-weight: $font-weight-medium;
+      border-radius: $radius-base;
+    }
+
+    &__title {
+      margin-bottom: $space-3;
+
+      a {
+        font-size: $font-size-2xl;
+        font-weight: $font-weight-bold;
+        color: $color-text-primary;
+        text-decoration: none;
+        line-height: $line-height-tight;
+        transition: color $transition-fast;
+
+        &:hover {
+          color: $color-primary;
+        }
+      }
+    }
+
+    &__excerpt {
+      font-size: $font-size-base;
+      color: $color-text-secondary;
+      line-height: $line-height-relaxed;
+      margin-bottom: $space-4;
+    }
+
+    &__tags {
+      display: flex;
+      gap: $space-2;
+      margin-bottom: $space-4;
+      flex-wrap: wrap;
+    }
+
+    &__tag {
+      font-size: $font-size-xs;
+      color: $color-text-muted;
+      font-weight: $font-weight-medium;
+    }
+
+    &__footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    &__read_time {
+      font-size: $font-size-sm;
+      color: $color-text-muted;
+    }
+
+    &__link {
+      color: $color-primary;
+      font-weight: $font-weight-medium;
+      text-decoration: none;
+      transition: color $transition-fast;
+
+      &:hover {
+        color: $color-primary-hover;
+      }
+    }
+  }
+} 

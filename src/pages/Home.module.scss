@@ -1,0 +1,131 @@
+// ========================================
+// Home Page - BEM Style (Reference Site Style)
+// ========================================
+
+@import '../styles/variables';
+@import '../styles/mixins';
+
+.home {
+  min-height: 100vh;
+  background-color: $color-bg-primary;
+
+  &__container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: $space-8 $space-4;
+
+    @include tablet-up {
+      padding: $space-12 $space-6;
+    }
+  }
+
+  &__filters {
+    display: flex;
+    gap: $space-2;
+    margin-bottom: $space-12;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    @include tablet-up {
+      justify-content: flex-start;
+    }
+  }
+
+  &__filter {
+    padding: $space-2 $space-4;
+    background: none;
+    border: 1px solid $color-border;
+    color: $color-text-secondary;
+    font-size: $font-size-sm;
+    font-weight: $font-weight-medium;
+    border-radius: $radius-full;
+    cursor: pointer;
+    transition: all $transition-fast;
+
+    &:hover {
+      background-color: $color-bg-secondary;
+      color: $color-text-primary;
+    }
+
+    &--active {
+      background-color: $color-primary;
+      border-color: $color-primary;
+      color: $color-bg-primary;
+    }
+  }
+
+  &__posts {
+    display: flex;
+    flex-direction: column;
+    gap: $space-16;
+  }
+
+  &__post {
+    &__meta {
+      display: flex;
+      align-items: center;
+      gap: $space-4;
+      margin-bottom: $space-3;
+    }
+
+    &__date {
+      font-size: $font-size-sm;
+      color: $color-text-muted;
+      font-weight: $font-weight-medium;
+    }
+
+    &__category {
+      padding: $space-1 $space-2;
+      background-color: $color-primary-light;
+      color: $color-primary;
+      font-size: $font-size-xs;
+      font-weight: $font-weight-medium;
+      border-radius: $radius-base;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    &__title {
+      margin-bottom: $space-4;
+
+      a {
+        font-size: $font-size-2xl;
+        font-weight: $font-weight-bold;
+        color: $color-text-primary;
+        text-decoration: none;
+        line-height: $line-height-tight;
+        transition: color $transition-fast;
+
+        &:hover {
+          color: $color-primary;
+        }
+
+        @include tablet-up {
+          font-size: $font-size-3xl;
+        }
+      }
+    }
+
+    &__excerpt {
+      font-size: $font-size-base;
+      color: $color-text-secondary;
+      line-height: $line-height-relaxed;
+      margin-bottom: $space-4;
+
+      @include tablet-up {
+        font-size: $font-size-lg;
+      }
+    }
+
+    &__footer {
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    &__read_time {
+      font-size: $font-size-sm;
+      color: $color-text-muted;
+      font-weight: $font-weight-medium;
+    }
+  }
+} 

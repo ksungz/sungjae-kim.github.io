@@ -1,0 +1,258 @@
+// ========================================
+// Global Styles
+// ========================================
+
+@import 'variables';
+@import 'mixins';
+
+// Import Google Fonts
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+// Reset and base styles
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: $font-size-base;
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: $font-family-primary;
+  font-size: $font-size-base;
+  line-height: $line-height-normal;
+  color: $color-text-primary;
+  background-color: $color-bg-primary;
+  min-height: 100vh;
+}
+
+// Typography elements
+h1, h2, h3, h4, h5, h6 {
+  font-family: $font-family-heading;
+  font-weight: $font-weight-bold;
+  line-height: $line-height-tight;
+  color: $color-text-primary;
+  margin: 0;
+}
+
+h1 {
+  @include heading-1;
+}
+
+h2 {
+  @include heading-2;
+}
+
+h3 {
+  @include heading-3;
+}
+
+h4 {
+  @include heading-4;
+}
+
+p {
+  @include body-base;
+  margin: 0;
+}
+
+a {
+  color: $color-primary;
+  text-decoration: none;
+  transition: color $transition-fast;
+
+  &:hover {
+    color: $color-primary-hover;
+  }
+
+  &:focus-visible {
+    @include focus-ring;
+  }
+}
+
+button {
+  font-family: inherit;
+  
+  &:focus-visible {
+    @include focus-ring;
+  }
+}
+
+// Utility classes
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.container {
+  @include container;
+}
+
+// Animation utilities
+.fade-in {
+  @include fade-in;
+}
+
+.slide-up {
+  @include slide-up;
+}
+
+// Layout utilities
+.layout {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.main {
+  flex: 1;
+  padding: $space-8 0;
+
+  @include tablet-up {
+    padding: $space-12 0;
+  }
+}
+
+// Component base classes for BEM
+.btn {
+  @include button-base;
+
+  &--primary {
+    @include button-primary;
+  }
+
+  &--secondary {
+    @include button-secondary;
+  }
+
+  &--ghost {
+    @include button-ghost;
+  }
+
+  &--small {
+    padding: $space-2 $space-4;
+    font-size: $font-size-sm;
+  }
+
+  &--large {
+    padding: $space-4 $space-8;
+    font-size: $font-size-lg;
+  }
+}
+
+.card {
+  @include card-base;
+
+  &--hover {
+    @include card-hover;
+  }
+
+  &--padding {
+    padding: $space-6;
+
+    @include tablet-up {
+      padding: $space-8;
+    }
+  }
+}
+
+// Text utilities
+.text {
+  &--primary {
+    color: $color-text-primary;
+  }
+
+  &--secondary {
+    color: $color-text-secondary;
+  }
+
+  &--muted {
+    color: $color-text-muted;
+  }
+
+  &--inverse {
+    color: $color-text-inverse;
+  }
+
+  &--gradient {
+    @include gradient-text;
+  }
+
+  &--center {
+    text-align: center;
+  }
+
+  &--large {
+    @include body-large;
+  }
+
+  &--small {
+    @include body-small;
+  }
+}
+
+// Spacing utilities
+.mt {
+  &--1 { margin-top: $space-1; }
+  &--2 { margin-top: $space-2; }
+  &--3 { margin-top: $space-3; }
+  &--4 { margin-top: $space-4; }
+  &--6 { margin-top: $space-6; }
+  &--8 { margin-top: $space-8; }
+  &--12 { margin-top: $space-12; }
+}
+
+.mb {
+  &--1 { margin-bottom: $space-1; }
+  &--2 { margin-bottom: $space-2; }
+  &--3 { margin-bottom: $space-3; }
+  &--4 { margin-bottom: $space-4; }
+  &--6 { margin-bottom: $space-6; }
+  &--8 { margin-bottom: $space-8; }
+  &--12 { margin-bottom: $space-12; }
+}
+
+// Grid system
+.grid {
+  display: grid;
+  gap: $space-6;
+
+  &--2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  &--3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  &--responsive {
+    grid-template-columns: 1fr;
+
+    @include tablet-up {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include desktop-up {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+}
+
+// Loading states
+.loading {
+  @include pulse;
+}

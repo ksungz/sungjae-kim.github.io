@@ -1,0 +1,29 @@
+// ========================================
+// Footer Component - BEM Style (Minimal)
+// ========================================
+
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.footer {
+  background-color: $color-bg-secondary;
+  border-top: 1px solid $color-border-light;
+  padding: $space-8 0;
+
+  &__container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 $space-4;
+    text-align: center;
+
+    @include tablet-up {
+      padding: 0 $space-6;
+    }
+  }
+
+  &__text {
+    font-size: $font-size-sm;
+    color: $color-text-muted;
+    margin: 0;
+  }
+} 

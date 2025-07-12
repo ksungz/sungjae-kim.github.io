@@ -1,0 +1,194 @@
+// ========================================
+// Header Component - BEM Style (Reference Site Style)
+// ========================================
+
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: $z-sticky;
+  background-color: rgba(15, 23, 42, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid $color-border-light;
+
+  &__container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 $space-4;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 64px;
+
+    @include tablet-up {
+      padding: 0 $space-6;
+    }
+  }
+
+  &__logo {
+    font-size: $font-size-lg;
+    font-weight: $font-weight-semibold;
+    color: $color-text-primary;
+    text-decoration: none;
+    transition: color $transition-fast;
+
+    &:hover {
+      color: $color-primary;
+    }
+
+    &__text {
+      display: block;
+    }
+  }
+
+  &__nav {
+    display: flex;
+    align-items: center;
+    gap: $space-8;
+
+    @include mobile-only {
+      position: fixed;
+      top: 64px;
+      left: 0;
+      right: 0;
+      background-color: $color-bg-primary;
+      border-top: 1px solid $color-border-light;
+      padding: $space-6;
+      flex-direction: column;
+      gap: $space-4;
+      transform: translateY(-100%);
+      opacity: 0;
+      visibility: hidden;
+      transition: all $transition-base;
+
+      &--open {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+
+    &__link {
+      font-size: $font-size-base;
+      font-weight: $font-weight-medium;
+      color: $color-text-secondary;
+      text-decoration: none;
+      padding: $space-2 0;
+      border-bottom: 2px solid transparent;
+      transition: all $transition-fast;
+
+      &:hover {
+        color: $color-text-primary;
+      }
+
+      &--active {
+        color: $color-primary;
+        border-bottom-color: $color-primary;
+      }
+
+      @include mobile-only {
+        font-size: $font-size-lg;
+        padding: $space-3 0;
+      }
+    }
+  }
+
+  &__search {
+    @include mobile-only {
+      display: none;
+    }
+
+    &__form {
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+
+    &__input {
+      width: 240px;
+      padding: $space-2 $space-10 $space-2 $space-3;
+      background-color: $color-bg-secondary;
+      border: 1px solid $color-border;
+      border-radius: $radius-md;
+      color: $color-text-primary;
+      font-size: $font-size-sm;
+      transition: all $transition-fast;
+
+      &::placeholder {
+        color: $color-text-muted;
+      }
+
+      &:focus {
+        outline: none;
+        border-color: $color-primary;
+        background-color: $color-bg-primary;
+      }
+    }
+
+    &__button {
+      position: absolute;
+      right: $space-2;
+      padding: $space-1;
+      background: none;
+      border: none;
+      color: $color-text-muted;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: color $transition-fast;
+
+      &:hover {
+        color: $color-text-primary;
+      }
+    }
+  }
+
+  &__toggle {
+    display: none;
+    flex-direction: column;
+    gap: 3px;
+    width: 24px;
+    height: 24px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+
+    @include mobile-only {
+      display: flex;
+    }
+
+    span {
+      width: 100%;
+      height: 2px;
+      background-color: $color-text-primary;
+      border-radius: $radius-full;
+      transition: all $transition-fast;
+    }
+
+    &--open {
+      span {
+        &:nth-child(1) {
+          transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        &:nth-child(2) {
+          opacity: 0;
+        }
+
+        &:nth-child(3) {
+          transform: rotate(-45deg) translate(7px, -6px);
+        }
+      }
+    }
+  }
+}
+
+// Scroll effect
+.header--scrolled {
+  background-color: rgba(255, 255, 255, 0.98);
+  box-shadow: $shadow-sm;
+}

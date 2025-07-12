@@ -1,0 +1,283 @@
+// ========================================
+// Profile Page - BEM Style
+// ========================================
+
+@import '../styles/variables';
+@import '../styles/mixins';
+
+.profile {
+  .hero {
+    padding: $space-16 0;
+    background: linear-gradient(135deg, $primary-50 0%, $accent-50 100%);
+    text-align: center;
+
+    @include tablet-up {
+      padding: $space-20 0;
+    }
+
+    &__content {
+      @include flex-column-center;
+      gap: $space-8;
+      max-width: 800px;
+      margin: 0 auto;
+
+      @include tablet-up {
+        flex-direction: row;
+        text-align: left;
+        gap: $space-12;
+      }
+    }
+
+    &__avatar {
+      flex-shrink: 0;
+
+      &__image {
+        width: 150px;
+        height: 150px;
+        @include flex-center;
+        font-size: 4rem;
+        background: linear-gradient(135deg, $primary-400 0%, $accent-400 100%);
+        border-radius: 50%;
+        box-shadow: $shadow-xl;
+        margin: 0 auto;
+
+        @include tablet-up {
+          width: 180px;
+          height: 180px;
+          font-size: 5rem;
+          margin: 0;
+        }
+      }
+    }
+
+    &__info {
+      flex: 1;
+    }
+
+    &__name {
+      @include heading-1;
+      margin-bottom: $space-2;
+      @include gradient-text;
+    }
+
+    &__title {
+      @include heading-3;
+      color: $color-text-secondary;
+      margin-bottom: $space-4;
+    }
+
+    &__description {
+      @include body-large;
+      color: $color-text-secondary;
+      line-height: $line-height-relaxed;
+      margin-bottom: $space-6;
+    }
+
+    &__contact {
+      @include flex-center;
+      gap: $space-4;
+
+      @include mobile-only {
+        flex-direction: column;
+        width: 100%;
+      }
+    }
+  }
+
+  .skills {
+    padding: $space-16 0;
+    background-color: $color-bg-primary;
+
+    &__title {
+      @include heading-2;
+      text-align: center;
+      margin-bottom: $space-12;
+    }
+
+    &__grid {
+      display: grid;
+      gap: $space-8;
+      grid-template-columns: 1fr;
+
+      @include tablet-up {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      @include desktop-up {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    &__category {
+      text-align: center;
+
+      &__title {
+        @include heading-4;
+        margin-bottom: $space-4;
+        color: $color-primary;
+      }
+
+      &__list {
+        @include flex-center;
+        flex-wrap: wrap;
+        gap: $space-2;
+        justify-content: center;
+      }
+    }
+
+    &__skill {
+      padding: $space-2 $space-3;
+      background-color: $color-bg-tertiary;
+      color: $color-text-secondary;
+      font-size: $font-size-sm;
+      font-weight: $font-weight-medium;
+      border-radius: $radius-full;
+      transition: all $transition-fast;
+
+      &:hover {
+        background-color: $color-primary-light;
+        color: $color-primary;
+        transform: translateY(-2px);
+      }
+    }
+  }
+
+  .experience {
+    padding: $space-16 0;
+    background-color: $color-bg-secondary;
+
+    &__title {
+      @include heading-2;
+      text-align: center;
+      margin-bottom: $space-12;
+    }
+
+    &__timeline {
+      max-width: 800px;
+      margin: 0 auto;
+      @include flex-column;
+      gap: $space-8;
+    }
+
+    &__item {
+      padding: $space-6;
+      background-color: $color-bg-primary;
+      border-radius: $radius-xl;
+      box-shadow: $shadow-sm;
+      border-left: 4px solid $color-primary;
+
+      &__header {
+        @include flex-between;
+        align-items: center;
+        margin-bottom: $space-2;
+
+        @include mobile-only {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: $space-2;
+        }
+      }
+
+      &__company {
+        @include heading-3;
+        color: $color-text-primary;
+      }
+
+      &__period {
+        @include body-small;
+        color: $color-text-muted;
+        font-weight: $font-weight-medium;
+      }
+
+      &__position {
+        @include heading-4;
+        color: $color-primary;
+        margin-bottom: $space-3;
+      }
+
+      &__description {
+        @include body-base;
+        color: $color-text-secondary;
+        margin-bottom: $space-4;
+        line-height: $line-height-relaxed;
+      }
+
+      &__achievements {
+        list-style: none;
+        @include flex-column;
+        gap: $space-2;
+
+        li {
+          @include body-base;
+          color: $color-text-secondary;
+          padding-left: $space-4;
+          position: relative;
+
+          &::before {
+            content: '•';
+            color: $color-primary;
+            font-weight: $font-weight-bold;
+            position: absolute;
+            left: 0;
+          }
+        }
+      }
+    }
+  }
+
+  .education {
+    padding: $space-16 0;
+    background-color: $color-bg-primary;
+
+    &__title {
+      @include heading-2;
+      text-align: center;
+      margin-bottom: $space-12;
+    }
+
+    &__content {
+      display: grid;
+      gap: $space-8;
+      grid-template-columns: 1fr;
+      max-width: 800px;
+      margin: 0 auto;
+
+      @include tablet-up {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    &__item {
+      text-align: center;
+
+      &__title {
+        @include heading-4;
+        color: $color-primary;
+        margin-bottom: $space-4;
+      }
+
+      &__detail {
+        @include body-base;
+        color: $color-text-secondary;
+        line-height: $line-height-relaxed;
+      }
+
+      &__list {
+        list-style: none;
+        @include flex-column;
+        gap: $space-2;
+
+        li {
+          @include body-base;
+          color: $color-text-secondary;
+          padding: $space-2 0;
+          border-bottom: 1px solid $color-border-light;
+
+          &:last-child {
+            border-bottom: none;
+          }
+        }
+      }
+    }
+  }
+}

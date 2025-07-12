@@ -1,7 +1,13 @@
+import styles from './Footer.module.scss'
+
 const Footer = () => {
   return (
-    <footer className="footer">
-      <p>© 2024 Sungjae Kim. All rights reserved.</p>
+    <footer className={styles.footer}>
+      <div className={styles.footer__container}>
+        <p className={styles.footer__text}>
+          © 2024 Sungjae Kim. Nothing is trivial.
+        </p>
+      </div>
     </footer>
   )
 }
